@@ -114,4 +114,42 @@ public class OrderValidatorTests
         Assert.IsFalse(result.IsValid);
         StringAssert.Contains(string.Join("|", result.Errors), "Size");
     }
+    [TestMethod]
+    public void Validate_ShotsOutOfRange_ReturnsInvalid()
+    {
+       var tooLow = new Beverage(
+            baseDrink: "Americano",
+            size: "Tall",
+            temp: "Hot",
+            milk: null,
+            plantMilk: null,
+            shots: -1, // Invalid shots (too low)
+            syrups: Array.Empty<string>(),
+            toppings: Array.Empty<string>(),
+            isDecaf: false
+        );
+
+        var tooHigh = new Beverage(
+            baseDrink: "Americano",
+            size: "Tall",
+            temp: "Hot",
+            milk: null,
+            plantMilk: null,
+            shots: 5, // Invalid shots (too high)
+            syrups: Array.Empty<string>(),
+            toppings: Array.Empty<string>(),
+            isDecaf: false
+        );
+
+        //act
+        var resultLow = OrderValidator.Validate(tooLow);
+        var resultHigh = OrderValidator.Validate(tooHigh);
+
+        //assert
+        Assert.IsFalse(resultLow.IsValid);
+        StringAssert.Contains(string.Join("|", resultLow.Errors), "Shots");
+
+        Assert.IsFalse(resultHigh.IsValid);
+        StringAssert.Contains(string.Join("|", resultHigh.Errors), "Shots");
+    }
 }
