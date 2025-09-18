@@ -186,5 +186,26 @@ public class OrderValidatorTests
         Assert.IsFalse(result.IsValid);
         StringAssert.Contains(string.Join("|", result.Errors), "Syrups");
     }
-    
+    [TestMethod]
+    public void Validate_NullSyrupEntry_ReturnsInvalid()
+    {
+        var bev = new Beverage(
+            baseDrink: "Latte",
+            size: "Grande",
+            temp: "Iced",
+            milk: null,
+            plantMilk: "Soy",
+            shots: 1,
+            syrups: new[] { "Vanilla", null, "Hazelnut" }, // One null entry
+            toppings: Array.Empty<string>(),
+            isDecaf: false
+        );
+
+        //act
+        var result = OrderValidator.Validate(bev);
+
+        //assert
+        Assert.IsFalse(result.IsValid);
+        StringAssert.Contains(string.Join("|", result.Errors), "Syrups");
+    }
 }
