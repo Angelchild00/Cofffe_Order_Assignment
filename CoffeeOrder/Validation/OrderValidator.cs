@@ -25,6 +25,10 @@ public static class OrderValidator
         if (!string.IsNullOrWhiteSpace(beverage.Temp) && beverage.Temp != "Hot" && beverage.Temp != "Iced")
             errors.Add("Temperature must be either 'Hot' or 'Iced'.");
 
+        //Emforce valid values for size: only Tall, Grande, Venti
+        if(!string.IsNullOrWhiteSpace(beverage.Size) && beverage.Size != "Tall" && beverage.Size != "Grande" && beverage.Size != "Venti")
+            errors.Add("Size must be either 'Tall', 'Grande', or 'Venti'.");
+
         // Milk XOR rule: cannot select both dairy and plant milk
         if (!string.IsNullOrWhiteSpace(beverage.Milk) && !string.IsNullOrWhiteSpace(beverage.PlantMilk))
             errors.Add("Milk selection invalid: choose dairy OR plant milk, not both.");
