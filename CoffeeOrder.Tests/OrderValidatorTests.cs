@@ -208,4 +208,26 @@ public class OrderValidatorTests
         Assert.IsFalse(result.IsValid);
         StringAssert.Contains(string.Join("|", result.Errors), "Syrups");
     }
+    [TestMethod]
+    public void Validate_SyrupsAtMaxFive_ReturnsValid()
+    {
+        var bev = new Beverage(
+            baseDrink: "Latte",
+            size: "Grande",
+            temp: "Iced",
+            milk: null,
+            plantMilk: "Soy",
+            shots: 1,
+            syrups: new[] { "Vanilla", "Caramel", "Hazelnut", "Mocha", "Pumpkin Spice" }, // Exactly 5 syrups
+            toppings: Array.Empty<string>(),
+            isDecaf: false
+        );
+
+        //act
+        var result = OrderValidator.Validate(bev);
+
+        //assert
+        Assert.IsTrue(result.IsValid);
+        Assert.AreEqual(0, result.Errors.Count);
+    }
 }
