@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CoffeeOrder")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a1abded216adaec4463a34ee3a573fb23ec1a252")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+32dd81ada4d5b32af98cda76c0a9ae2333ffd632")]
 [assembly: System.Reflection.AssemblyProductAttribute("CoffeeOrder")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CoffeeOrder")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

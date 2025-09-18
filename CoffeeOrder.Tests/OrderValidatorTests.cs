@@ -112,6 +112,6 @@ public class OrderValidatorTests
 
         //assert
         Assert.IsFalse(result.IsValid);
-        StringAssert.Contains(string.Join("|", result.Errors), "size");
+        StringAssert.Contains(string.Join("|", result.Errors), "Size");
     }
 }
