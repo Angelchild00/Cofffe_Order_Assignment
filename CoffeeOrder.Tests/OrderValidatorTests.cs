@@ -117,17 +117,17 @@ public class OrderValidatorTests
     [TestMethod]
     public void Validate_ShotsOutOfRange_ReturnsInvalid()
     {
-       var tooLow = new Beverage(
-            baseDrink: "Americano",
-            size: "Tall",
-            temp: "Hot",
-            milk: null,
-            plantMilk: null,
-            shots: -1, // Invalid shots (too low)
-            syrups: Array.Empty<string>(),
-            toppings: Array.Empty<string>(),
-            isDecaf: false
-        );
+        var tooLow = new Beverage(
+             baseDrink: "Americano",
+             size: "Tall",
+             temp: "Hot",
+             milk: null,
+             plantMilk: null,
+             shots: -1, // Invalid shots (too low)
+             syrups: Array.Empty<string>(),
+             toppings: Array.Empty<string>(),
+             isDecaf: false
+         );
 
         var tooHigh = new Beverage(
             baseDrink: "Americano",
@@ -152,4 +152,17 @@ public class OrderValidatorTests
         Assert.IsFalse(resultHigh.IsValid);
         StringAssert.Contains(string.Join("|", resultHigh.Errors), "Shots");
     }
+    [TestMethod]
+    public void Validate_NullBeverage_ReturnsInvalid()
+    {
+        Beverage bev = null;
+
+        //act
+        var result = OrderValidator.Validate(bev);
+
+        //assert
+        Assert.IsFalse(result.IsValid);
+        StringAssert.Contains(string.Join("|", result.Errors), "Beverage must not be null");
+    }
+    
 }
