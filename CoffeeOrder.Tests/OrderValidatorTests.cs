@@ -90,6 +90,6 @@ public class OrderValidatorTests
 
         //assert
         Assert.IsFalse(result.IsValid);
-        StringAssert.Contains(string.Join("|", result.Errors), "temperature");
+        StringAssert.Contains(string.Join("|", result.Errors), "Temperature");
     }
 }

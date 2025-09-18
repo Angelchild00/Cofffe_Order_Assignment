@@ -21,6 +21,10 @@ public static class OrderValidator
         if (string.IsNullOrWhiteSpace(beverage.Temp))
             errors.Add("Temperature (Hot/Iced) must be selected.");
 
+        //Enforce valid values for temperature: only hot or iced
+        if (!string.IsNullOrWhiteSpace(beverage.Temp) && beverage.Temp != "Hot" && beverage.Temp != "Iced")
+            errors.Add("Temperature must be either 'Hot' or 'Iced'.");
+
         // Milk XOR rule: cannot select both dairy and plant milk
         if (!string.IsNullOrWhiteSpace(beverage.Milk) && !string.IsNullOrWhiteSpace(beverage.PlantMilk))
             errors.Add("Milk selection invalid: choose dairy OR plant milk, not both.");

@@ -168,3 +168,4 @@ D:\School\Semester 3\Software Quality 1\Coffee order code\CoffeeOrder.Tests\obj\
 D:\School\Semester 3\Software Quality 1\Coffee order code\CoffeeOrder.Tests\obj\Debug\net8.0\CoffeeOrder.Tests.pdb
 D:\School\Semester 3\Software Quality 1\Coffee order code\CoffeeOrder.Tests\obj\Debug\net8.0\CoffeeOrder.Tests.genruntimeconfig.cache
 D:\School\Semester 3\Software Quality 1\Coffee order code\CoffeeOrder.Tests\obj\Debug\net8.0\ref\CoffeeOrder.Tests.dll
+D:\School\Semester 3\Software Quality 1\Coffee order code\CoffeeOrder.Tests\obj\Debug\net8.0\CoffeeOrder.Tests.sourcelink.json
