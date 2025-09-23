@@ -88,4 +88,23 @@ public class BeverageClassifierTests
 
         Assert.IsTrue(result.DairyFree, "No dairy milk or toppings should be classified as dairy-free.");
     }
+    [TestMethod]
+    public void Classify_WhippedCreamTopping_ReturnsNotDairyFree()
+    {
+        var bev = new Beverage(
+            baseDrink: "Latte",
+            size: "Tall",
+            temp: "Hot",
+            milk: null, //no dairy milk
+            plantMilk: "Oat",
+            shots: 1,
+            syrups: new[] { "Vanilla" },
+            toppings: new[] { "Whipped Cream" }, //has whipped cream topping
+            isDecaf: false
+        );
+
+        var result = BeverageClassifier.Classify(bev);
+
+        Assert.IsFalse(result.DairyFree, "Whipped cream topping should make the beverage not dairy-free.");
+    }
 }
