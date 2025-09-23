@@ -1,40 +1,53 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using CoffeeOrder.Models;
 using CoffeeOrder.Pricing;
-using CoffeeOrder.Validation;
-using System.Linq;
-using System;
 using CoffeeOrder.Promotions;
 
-namespace CoffeeOrder.Tests;
 
-[TestClass]
-public class PromotionHelperTests
+namespace CoffeeOrder.Tests
 {
-    [TestMethod]
-    public void Apply_HappyHour_SingleHotDrink_Takes20PercentOff()
+    [TestClass]
+    public class PromotionHelperTests
     {
-        // Arrange
-        var bev = new Beverage(
-         baseDrink: "Latte",
-         size: "Tall",
-         temp: "Hot",
-         milk: "Whole",
-         plantMilk: null,
-         shots: 1,
-         syrups: Array.Empty<string>(),
-         toppings: Array.Empty<string>(),
-         isDecaf: true
-         );
-        var items = new[] { bev };
-        var subtotal = PricingHelper.CalculateSubtotal(items);
-        var (totalAfter, discounts) = PromotionHelper.Apply(items new[] { "HappyHour" });
-        var expectedDiscount = Math.Round(subtotal - expectedDiscount, 2);
+        [TestMethod]
+        public void Apply_HappyHour_DoesNotDiscountIced()
+        {
+            var hot = new Beverage(
+                baseDrink: "Latte",
+                size: "Tall",
+                temp: "Hot",
+                milk: null,
+                plantMilk: null,
+                shots: 0,
+                syrups: Array.Empty<string>(),
+                toppings: Array.Empty<string>(),
+                isDecaf: true
+            );
 
-        // Assert
-        Assert.AreEqual(expectedTotsl, totalAfter);
-        Assert.AreEqual("HAPPYHOUR", discounts[0].Code);
-        Assert.AreEqual(expectedDiscount, discounts[0].Amount);
-    }
+            var iced = new Beverage(
+                baseDrink: "Latte",
+                size: "Tall",
+                temp: "Iced",
+                milk: null,
+                plantMilk: null,
+                shots: 0,
+                syrups: Array.Empty<string>(),
+                toppings: Array.Empty<string>(),
+                isDecaf: true
+            );
 
+            var items = new[] { hot, iced };
+            var subtotal = PriceCalculator.CalculateOrderPrice(items);
+
+            var (totalAfter, discounts) = PromotionHelper.Apply(items, new[] { "HAPPYHOUR" });
+
+            var expectedDiscount = Math.Round(PriceCalculator.CalculatePrice(hot) * 0.20m, 2);
+            var expectedTotal = Math.Round(subtotal - expectedDiscount, 2);
+
+            Assert.AreEqual(1, discounts.Count);
+            Assert.AreEqual("HAPPYHOUR", discounts[0].Code);
+            Assert.AreEqual(expectedDiscount, discounts[0].Amount);
+            Assert.AreEqual(expectedTotal, totalAfter);
+        }
     }
+}
