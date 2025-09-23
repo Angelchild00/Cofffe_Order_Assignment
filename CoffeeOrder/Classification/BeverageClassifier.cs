@@ -15,7 +15,8 @@ public static class BeverageClassifier
         // A beverage is dairy-free if it does not contain dairy milk and has no toppings that contain dairy        
        bool hasDairyMilk = !string.IsNullOrWhiteSpace(beverage.Milk);
        bool hasDairyToppings = beverage.Toppings.Any(t => t.Equals("Whipped Cream", StringComparison.OrdinalIgnoreCase));
-       bool dairyFree = !hasDairyMilk && !hasDairyToppings; 
+       bool containsDairy = hasDairyMilk || hasDairyToppings;
+       bool dairyFree = !containsDairy;
 
        bool hasHoney = beverage.Syrups.Any(s => string.Equals(s?.Trim(),"Honey", StringComparison.OrdinalIgnoreCase));
        // A beverage is vegan-friendly if it is dairy-free and does not contain honey 
@@ -24,6 +25,7 @@ public static class BeverageClassifier
         return new ClassificationResult
         {
             KidSafe = kidSafe,
+            ContainsDairy = containsDairy,
             DairyFree = dairyFree,
             VeganFriendly = veganFriendly,
             Caffeinated = caffeinated
