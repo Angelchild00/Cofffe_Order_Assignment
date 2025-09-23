@@ -11,7 +11,11 @@ public static class BeverageClassifier
        bool caffeinated = beverage.Shots > 0 && !beverage.IsDecaf;
        bool kidSafe = !caffeinated;
 
-       bool dairyFree = string.IsNullOrWhiteSpace(beverage.Milk); 
+
+        // A beverage is dairy-free if it does not contain dairy milk and has no toppings that contain dairy        
+       bool hasDairyMilk = !string.IsNullOrWhiteSpace(beverage.Milk);
+       bool hasDairyToppings = beverage.Toppings.Any(t => t.Equals("Whipped Cream", StringComparison.OrdinalIgnoreCase));
+       bool dairyFree = !hasDairyMilk && !hasDairyToppings; 
 
         return new ClassificationResult
         {
