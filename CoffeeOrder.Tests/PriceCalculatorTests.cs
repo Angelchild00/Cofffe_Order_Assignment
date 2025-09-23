@@ -83,4 +83,23 @@ public class PriceCalculatorTests
         //assert
         Assert.AreEqual(5.85m, price); // 3.75 + 1.00 + 0.50 + (2 * 0.30)
     }
+    [TestMethod]
+    public void CalculatePrice_PlantMilkSurcharge()
+    {
+        var beverage = new Beverage(
+            baseDrink: "Latte",
+            size: "Grande",
+            temp: "Hot",
+            milk: null,
+            plantMilk: "Oat",
+            shots: 1,
+            syrups: new[] { "Vanilla" },
+            toppings: new[] { "Cinnamon" },
+            isDecaf: false
+        );
+        //act
+        var price = PriceCalculator.CalculatePrice(beverage);
+        //assert
+        Assert.AreEqual(5.05m, price); // 3.00 + 0.50 + 0.50 + 0.25 + 0.30 + 0.50
+    }
 }
