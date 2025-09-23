@@ -69,5 +69,26 @@ public class BeverageClassifierTests
         Assert.IsTrue(result.Caffeinated, "Beverage with shots greater than 0 and not decaf should be classified as caffeinated.");
 
     }
+    [TestMethod]
+    public void Classify_DecafWithShots_ReturnsKidSafe_AndNotCaffeinated()
+    {
+        var bev = new Beverage(
+            baseDrink: "Cappuccino",
+            size: "Venti",
+            temp: "Hot",
+            milk: "2%",
+            plantMilk: null,
+            shots: 2, //shots > 0
+            syrups: Array.Empty<string>(),
+            toppings: Array.Empty<string>(),
+            isDecaf: true //decaf should override shots
+        );
+        //act
+        var result = BeverageClassifier.Classify(bev);
+        //assert
+        Assert.IsTrue(result.KidSafe, "Decaf beverage should be classified as kid-safe.");
+        Assert.IsFalse(result.Caffeinated, "Decaf beverage should not be classified as caffeinated.");
+
+    }
     
 }
