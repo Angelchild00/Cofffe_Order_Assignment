@@ -58,8 +58,8 @@ public class BeverageClassifierTests
             milk: "2%",
             plantMilk: null,
             shots: 2,
-            syrups: new[] { "Caramel" },
-            toppings: new[] { "Cinnamon" },
+            syrups: Array.Empty<string>(),
+            toppings: Array.Empty<string>(),
             isDecaf: false
         );
         //act

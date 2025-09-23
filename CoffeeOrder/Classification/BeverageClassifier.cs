@@ -6,13 +6,15 @@ public static class BeverageClassifier
 {
     public static ClassificationResult Classify(Beverage beverage)
     {
-        var kidSafe = beverage.Shots == 0 || beverage.IsDecaf;
+       bool caffeinated = beverage.Shots > 0 && !beverage.IsDecaf;
+       bool kidSafe = !caffeinated;
+
         return new ClassificationResult
         {
             KidSafe = kidSafe,
             DairyFree = false,
             VeganFriendly = false,
-            Caffeinated = false
+            Caffeinated = caffeinated
         };
     }
 

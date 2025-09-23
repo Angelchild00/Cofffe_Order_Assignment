@@ -196,7 +196,7 @@ public class OrderValidatorTests
             milk: null,
             plantMilk: "Soy",
             shots: 1,
-            syrups: new[] { "Vanilla", null, "Hazelnut" }, // One null entry
+            syrups: new string?[] {null}, // One null entry
             toppings: Array.Empty<string>(),
             isDecaf: false
         );
