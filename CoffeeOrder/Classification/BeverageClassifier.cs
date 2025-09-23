@@ -17,11 +17,13 @@ public static class BeverageClassifier
        bool hasDairyToppings = beverage.Toppings.Any(t => t.Equals("Whipped Cream", StringComparison.OrdinalIgnoreCase));
        bool dairyFree = !hasDairyMilk && !hasDairyToppings; 
 
+       bool veganFriendly = dairyFree; // Simplified assumption 
+
         return new ClassificationResult
         {
             KidSafe = kidSafe,
             DairyFree = dairyFree,
-            VeganFriendly = false,
+            VeganFriendly = veganFriendly,
             Caffeinated = caffeinated
         };
     }
