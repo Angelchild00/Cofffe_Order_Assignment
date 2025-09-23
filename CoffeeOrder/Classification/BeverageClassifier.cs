@@ -17,7 +17,9 @@ public static class BeverageClassifier
        bool hasDairyToppings = beverage.Toppings.Any(t => t.Equals("Whipped Cream", StringComparison.OrdinalIgnoreCase));
        bool dairyFree = !hasDairyMilk && !hasDairyToppings; 
 
-       bool veganFriendly = dairyFree; // Simplified assumption 
+       bool hasHoney = beverage.Syrups.Any(s => string.Equals(s?.Trim(),"Honey", StringComparison.OrdinalIgnoreCase));
+       // A beverage is vegan-friendly if it is dairy-free and does not contain honey 
+       bool veganFriendly = dairyFree && !hasHoney; // Simplified assumption 
 
         return new ClassificationResult
         {

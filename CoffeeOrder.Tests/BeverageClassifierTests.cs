@@ -146,4 +146,24 @@ public class BeverageClassifierTests
         Assert.IsTrue(result.DairyFree, "Beverage with no dairy milk or toppings should be classified as dairy-free.");
         Assert.IsTrue(result.VeganFriendly, "Beverage with no dairy milk or toppings should be classified as vegan-friendly.");
     }
+    [TestMethod]
+    public void Classify_HoneySyrup_ReturnsNotVeganFriendly()
+    {
+        var bev = new Beverage(
+            baseDrink: "Latte",
+            size: "Tall",
+            temp: "Hot",
+            milk: null, //no dairy milk
+            plantMilk: "Oat",
+            shots: 1,
+            syrups: new[] { "Honey" }, //contains honey syrup
+            toppings: Array.Empty<string>(), //no toppings
+            isDecaf: false
+        );
+        //act
+        var result = BeverageClassifier.Classify(bev);
+        //assert
+        Assert.IsTrue(result.DairyFree, "Beverage with no dairy milk or toppings should be classified as dairy-free.");
+        Assert.IsFalse(result.VeganFriendly, "Beverage with honey syrup should not be classified as vegan-friendly.");
+    }   
 }
