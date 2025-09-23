@@ -64,4 +64,23 @@ public class PriceCalculatorTests
         //assert
         Assert.AreEqual(5.00m, price); // 3.50 + 0.50 + 0.50 + (2 * 0.25)
     }
+    [TestMethod]
+    public void CalculatePrice_AddToppings()
+    {
+        var beverage = new Beverage(
+            baseDrink: "Mocha",
+            size: "Venti",
+            temp: "Hot",
+            milk: "Whole",
+            plantMilk: null,
+            shots: 1,
+            syrups: Array.Empty<string>(),
+            toppings: new[] { "Whipped Cream", "Chocolate Shavings" },
+            isDecaf: false
+        );
+        //act
+        var price = PriceCalculator.CalculatePrice(beverage);
+        //assert
+        Assert.AreEqual(5.85m, price); // 3.75 + 1.00 + 0.50 + (2 * 0.30)
+    }
 }
