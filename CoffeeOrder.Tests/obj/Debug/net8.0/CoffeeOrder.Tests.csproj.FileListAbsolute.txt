@@ -1,3 +1,9 @@
+D:\School\Semester 3\Software Quality 1\Coffee order code\CoffeeOrder.Tests\obj\Debug\net8.0\CoffeeOrder.Tests.csproj.AssemblyReference.cache
+D:\School\Semester 3\Software Quality 1\Coffee order code\CoffeeOrder.Tests\obj\Debug\net8.0\CoffeeOrder.Tests.GeneratedMSBuildEditorConfig.editorconfig
+D:\School\Semester 3\Software Quality 1\Coffee order code\CoffeeOrder.Tests\obj\Debug\net8.0\CoffeeOrder.Tests.AssemblyInfoInputs.cache
+D:\School\Semester 3\Software Quality 1\Coffee order code\CoffeeOrder.Tests\obj\Debug\net8.0\CoffeeOrder.Tests.AssemblyInfo.cs
+D:\School\Semester 3\Software Quality 1\Coffee order code\CoffeeOrder.Tests\obj\Debug\net8.0\CoffeeOrder.Tests.csproj.CoreCompileInputs.cache
+D:\School\Semester 3\Software Quality 1\Coffee order code\CoffeeOrder.Tests\obj\Debug\net8.0\CoffeeOrder.Tests.sourcelink.json
 D:\School\Semester 3\Software Quality 1\Coffee order code\CoffeeOrder.Tests\bin\Debug\net8.0\testhost.dll
 D:\School\Semester 3\Software Quality 1\Coffee order code\CoffeeOrder.Tests\bin\Debug\net8.0\testhost.exe
 D:\School\Semester 3\Software Quality 1\Coffee order code\CoffeeOrder.Tests\bin\Debug\net8.0\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
@@ -157,12 +163,6 @@ D:\School\Semester 3\Software Quality 1\Coffee order code\CoffeeOrder.Tests\bin\
 D:\School\Semester 3\Software Quality 1\Coffee order code\CoffeeOrder.Tests\bin\Debug\net8.0\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
 D:\School\Semester 3\Software Quality 1\Coffee order code\CoffeeOrder.Tests\bin\Debug\net8.0\CoffeeOrder.pdb
 D:\School\Semester 3\Software Quality 1\Coffee order code\CoffeeOrder.Tests\bin\Debug\net8.0\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
-D:\School\Semester 3\Software Quality 1\Coffee order code\CoffeeOrder.Tests\obj\Debug\net8.0\CoffeeOrder.Tests.csproj.AssemblyReference.cache
-D:\School\Semester 3\Software Quality 1\Coffee order code\CoffeeOrder.Tests\obj\Debug\net8.0\CoffeeOrder.Tests.GeneratedMSBuildEditorConfig.editorconfig
-D:\School\Semester 3\Software Quality 1\Coffee order code\CoffeeOrder.Tests\obj\Debug\net8.0\CoffeeOrder.Tests.AssemblyInfoInputs.cache
-D:\School\Semester 3\Software Quality 1\Coffee order code\CoffeeOrder.Tests\obj\Debug\net8.0\CoffeeOrder.Tests.AssemblyInfo.cs
-D:\School\Semester 3\Software Quality 1\Coffee order code\CoffeeOrder.Tests\obj\Debug\net8.0\CoffeeOrder.Tests.csproj.CoreCompileInputs.cache
-D:\School\Semester 3\Software Quality 1\Coffee order code\CoffeeOrder.Tests\obj\Debug\net8.0\CoffeeOrder.Tests.sourcelink.json
 D:\School\Semester 3\Software Quality 1\Coffee order code\CoffeeOrder.Tests\obj\Debug\net8.0\CoffeeOr.E4CB6DFE.Up2Date
 D:\School\Semester 3\Software Quality 1\Coffee order code\CoffeeOrder.Tests\obj\Debug\net8.0\CoffeeOrder.Tests.dll
 D:\School\Semester 3\Software Quality 1\Coffee order code\CoffeeOrder.Tests\obj\Debug\net8.0\refint\CoffeeOrder.Tests.dll

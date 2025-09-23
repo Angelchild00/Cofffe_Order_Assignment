@@ -9,14 +9,14 @@ D:\School\Semester 3\Software Quality 1\CoffeeOrder\obj\Debug\net8.0\CoffeeOrder
 D:\School\Semester 3\Software Quality 1\CoffeeOrder\obj\Debug\net8.0\refint\CoffeeOrder.dll
 D:\School\Semester 3\Software Quality 1\CoffeeOrder\obj\Debug\net8.0\CoffeeOrder.pdb
 D:\School\Semester 3\Software Quality 1\CoffeeOrder\obj\Debug\net8.0\ref\CoffeeOrder.dll
-D:\School\Semester 3\Software Quality 1\Coffee order code\CoffeeOrder\bin\Debug\net8.0\CoffeeOrder.deps.json
-D:\School\Semester 3\Software Quality 1\Coffee order code\CoffeeOrder\bin\Debug\net8.0\CoffeeOrder.dll
-D:\School\Semester 3\Software Quality 1\Coffee order code\CoffeeOrder\bin\Debug\net8.0\CoffeeOrder.pdb
 D:\School\Semester 3\Software Quality 1\Coffee order code\CoffeeOrder\obj\Debug\net8.0\CoffeeOrder.GeneratedMSBuildEditorConfig.editorconfig
 D:\School\Semester 3\Software Quality 1\Coffee order code\CoffeeOrder\obj\Debug\net8.0\CoffeeOrder.AssemblyInfoInputs.cache
 D:\School\Semester 3\Software Quality 1\Coffee order code\CoffeeOrder\obj\Debug\net8.0\CoffeeOrder.AssemblyInfo.cs
 D:\School\Semester 3\Software Quality 1\Coffee order code\CoffeeOrder\obj\Debug\net8.0\CoffeeOrder.csproj.CoreCompileInputs.cache
 D:\School\Semester 3\Software Quality 1\Coffee order code\CoffeeOrder\obj\Debug\net8.0\CoffeeOrder.sourcelink.json
+D:\School\Semester 3\Software Quality 1\Coffee order code\CoffeeOrder\bin\Debug\net8.0\CoffeeOrder.deps.json
+D:\School\Semester 3\Software Quality 1\Coffee order code\CoffeeOrder\bin\Debug\net8.0\CoffeeOrder.dll
+D:\School\Semester 3\Software Quality 1\Coffee order code\CoffeeOrder\bin\Debug\net8.0\CoffeeOrder.pdb
 D:\School\Semester 3\Software Quality 1\Coffee order code\CoffeeOrder\obj\Debug\net8.0\CoffeeOrder.dll
 D:\School\Semester 3\Software Quality 1\Coffee order code\CoffeeOrder\obj\Debug\net8.0\refint\CoffeeOrder.dll
 D:\School\Semester 3\Software Quality 1\Coffee order code\CoffeeOrder\obj\Debug\net8.0\CoffeeOrder.pdb
