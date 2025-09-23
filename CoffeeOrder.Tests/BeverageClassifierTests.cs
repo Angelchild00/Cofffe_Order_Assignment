@@ -229,7 +229,7 @@ public class BeverageClassifierTests
         Assert.IsTrue(result.VeganFriendly, "Beverage with maple syrup should be classified as vegan-friendly.");
     }
     [TestMethod]
-    public void Classify_MilkorWhippedCream_ReturnsNotDairyFree_AndNotVeganFriendly()
+    public void Classify_MilkorWhippedCream_ReturnsContainsDairy_NotDairyFree()
     {
         var bev = new Beverage(
             baseDrink: "Latte",
@@ -245,7 +245,29 @@ public class BeverageClassifierTests
         //act
         var result = BeverageClassifier.Classify(bev);
         //assert
-        Assert.IsTrue(result.ContainsDairy);
+        Assert.IsTrue(result.ContainsDairy, "Beverage with dairy milk and whipped cream topping should be classified as containing dairy");
         Assert.IsFalse(result.DairyFree, "Beverage with dairy milk and whipped cream topping should not be classified as dairy-free.");
-        }
+    }
+    [TestMethod]
+    public void Classify_AlmondPlantMilk_ReturnsContainsTreeNuts_VeganAndDairyFree()
+    {
+        var bev = new Beverage(
+            baseDrink: "Latte",
+            size: "Tall",
+            temp: "Hot",
+            milk: null, //no dairy milk
+            plantMilk: "Almond", //contains tree nuts
+            shots: 1,
+            syrups: new[] { "Vanilla" },
+            toppings: Array.Empty<string>(), //no toppings
+            isDecaf: false
+        );
+        //act
+        var result = BeverageClassifier.Classify(bev);
+        //assert
+        Assert.IsFalse(result.ContainsTreeNuts, "Almond plant milk should not be classified as containing tree nuts.");
+        Assert.IsTrue(result.DairyFree, "Beverage with almond plant milk should be classified as dairy-free.");
+        Assert.IsTrue(result.VeganFriendly, "Beverage with almond plant milk should be classified as vegan-friendly.");
+    }
+    
 }
