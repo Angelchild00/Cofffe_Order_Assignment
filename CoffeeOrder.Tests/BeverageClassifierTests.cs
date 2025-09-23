@@ -69,5 +69,23 @@ public class BeverageClassifierTests
         Assert.IsTrue(result.Caffeinated, "Beverage with shots greater than 0 and not decaf should be classified as caffeinated.");
 
     }
-    
+    [TestMethod]
+    public void Classify_NoDairyMilk_ReturnsDairyFree()
+    {
+        var bev = new Beverage(
+            baseDrink: "Latte",
+            size: "Tall",
+            temp: "Hot",
+            milk: null, //no dairy milk
+            plantMilk: "Oat",
+            shots: 1,
+            syrups: new[] { "Vanilla" },
+            toppings: Array.Empty<string>(), //no toppings
+            isDecaf: false
+        );
+
+        var result = BeverageClassifier.Classify(bev);
+
+        Assert.IsTrue(result.DairyFree, "No dairy milk or toppings should be classified as dairy-free.");
+    }
 }
