@@ -265,9 +265,29 @@ public class BeverageClassifierTests
         //act
         var result = BeverageClassifier.Classify(bev);
         //assert
-        Assert.IsFalse(result.ContainsTreeNuts, "Almond plant milk should not be classified as containing tree nuts.");
+        Assert.IsTrue(result.ContainsTreeNuts, "Almond plant milk should be classified as containing tree nuts.");
         Assert.IsTrue(result.DairyFree, "Beverage with almond plant milk should be classified as dairy-free.");
         Assert.IsTrue(result.VeganFriendly, "Beverage with almond plant milk should be classified as vegan-friendly.");
     }
-    
+    [TestMethod]
+    public void Classify_HazelnutSyrup_ReturnscontainsTreeNuts_VeganAndDairyFree()
+    {
+        var bev = new Beverage(
+            baseDrink: "Latte",
+            size: "Tall",
+            temp: "Hot",
+            milk: null, //no dairy milk
+            plantMilk: "Oat", //no plant milk
+            shots: 1,
+            syrups: new[] { "Hazelnut" }, //contains tree nut syrup
+            toppings: Array.Empty<string>(), //no toppings
+            isDecaf: false
+        );
+        //act
+        var result = BeverageClassifier.Classify(bev);
+        //assert
+        Assert.IsTrue(result.ContainsTreeNuts, "Hazelnut syrup should be classified as containing tree nuts.");
+        Assert.IsTrue(result.DairyFree, "Beverage with no dairy milk or toppings should be classified as dairy-free.");
+        Assert.IsTrue(result.VeganFriendly, "Beverage with no dairy milk or toppings should be classified as vegan-friendly.");
+    }
 }
