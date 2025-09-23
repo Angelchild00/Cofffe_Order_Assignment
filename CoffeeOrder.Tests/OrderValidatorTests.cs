@@ -115,6 +115,29 @@ public class OrderValidatorTests
         StringAssert.Contains(string.Join("|", result.Errors), "Size");
     }
     [TestMethod]
+    public void Validate_MissingSize_ReturnsInvalid()
+    {
+        var bev = new Beverage(
+            baseDrink: "Espresso",
+            size: null, // Missing size
+            temp: "Hot",
+            milk: null,
+            plantMilk: null,
+            shots: 1,
+            syrups: Array.Empty<string>(),
+            toppings: Array.Empty<string>(),
+            isDecaf: false
+        );
+
+        //act
+        var result = OrderValidator.Validate(bev);
+
+        //assert
+        Assert.IsFalse(result.IsValid);
+        StringAssert.Contains(string.Join("|", result.Errors), "size");
+    }
+
+    [TestMethod]
     public void Validate_ShotsOutOfRange_ReturnsInvalid()
     {
         var tooLow = new Beverage(
