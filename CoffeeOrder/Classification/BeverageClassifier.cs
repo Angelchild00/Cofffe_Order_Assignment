@@ -19,8 +19,14 @@ public static class BeverageClassifier
        bool dairyFree = !containsDairy;
 
        bool hasHoney = beverage.Syrups.Any(s => string.Equals(s?.Trim(),"Honey", StringComparison.OrdinalIgnoreCase));
+
        // A beverage is vegan-friendly if it is dairy-free and does not contain honey 
-       bool veganFriendly = dairyFree && !hasHoney; // Simplified assumption 
+       bool veganFriendly = dairyFree && !hasHoney;
+
+       // A beverage contains nuts if it has almond, cashew, or pistachio milk
+       bool containsTreeNuts = string.Equals(beverage.PlantMilk?.Trim(), "Almond", StringComparison.OrdinalIgnoreCase) || 
+                               string.Equals(beverage.PlantMilk?.Trim(), "Cashew", StringComparison.OrdinalIgnoreCase) ||
+                               string.Equals(beverage.PlantMilk?.Trim(), "Pistachio", StringComparison.OrdinalIgnoreCase);
 
         return new ClassificationResult
         {
@@ -28,8 +34,8 @@ public static class BeverageClassifier
             ContainsDairy = containsDairy,
             DairyFree = dairyFree,
             VeganFriendly = veganFriendly,
-            Caffeinated = caffeinated
-        };
+            Caffeinated = caffeinated,
+            ContainsTreeNuts = containsTreeNuts};
     }
 
 }

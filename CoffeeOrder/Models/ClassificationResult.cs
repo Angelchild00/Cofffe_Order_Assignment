@@ -7,4 +7,5 @@ public sealed class ClassificationResult
     public bool KidSafe { get; init; }
     public bool Caffeinated { get; init; }
     public bool ContainsDairy { get; init; }
+    public bool ContainsTreeNuts { get; init; }
 }
