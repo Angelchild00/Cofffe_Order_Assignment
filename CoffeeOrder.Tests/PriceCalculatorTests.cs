@@ -102,4 +102,23 @@ public class PriceCalculatorTests
         //assert
         Assert.AreEqual(5.05m, price); // 3.00 + 0.50 + 0.50 + 0.25 + 0.30 + 0.50
     }
+    [TestMethod]
+    public void CalculatePrice_SumItems()
+    {
+        var beverage = new Beverage(
+            baseDrink: "Americano",
+            size: "Venti",
+            temp: "Iced",
+            milk: null,
+            plantMilk: "Almond",
+            shots: 3,
+            syrups: new[] { "Hazelnut", "Caramel", "Vanilla" },
+            toppings: new[] { "Whipped Cream" },
+            isDecaf: false
+        );
+        //act
+        var price = PriceCalculator.CalculatePrice(beverage);
+        //assert
+        Assert.AreEqual(6.05m, PriceCalculator.CalculatePrice(beverage)); // 2.00 + 1.00 + (3 * 0.50) + (3 * 0.25) + (1 * 0.30) + 0.50
+    }
 }
