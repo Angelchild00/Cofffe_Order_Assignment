@@ -27,7 +27,7 @@ public static class BeverageClassifier
        bool containsTreeNuts = string.Equals(beverage.PlantMilk?.Trim(), "Almond", StringComparison.OrdinalIgnoreCase) || 
                                string.Equals(beverage.PlantMilk?.Trim(), "Cashew", StringComparison.OrdinalIgnoreCase) ||
                                string.Equals(beverage.PlantMilk?.Trim(), "Pistachio", StringComparison.OrdinalIgnoreCase);
-       containsTreeNuts = containsTreeNuts || beverage.Syrups.Any(t => t.Equals("Hazelnut", StringComparison.OrdinalIgnoreCase));
+       containsTreeNuts = containsTreeNuts || beverage.Syrups.Any(s => string.Equals(s?.Trim(),"Hazelnut", StringComparison.OrdinalIgnoreCase));
 
         return new ClassificationResult
         {
