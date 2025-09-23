@@ -22,9 +22,9 @@ public class BeverageClassifierTests
             toppings: new[] { "Whipped Cream" },
             isDecaf: false
         );
-
+        //act
         var result = BeverageClassifier.Classify(bev);
-
+        //assert
         Assert.IsTrue(result.KidSafe);
 
     }
@@ -42,10 +42,32 @@ public class BeverageClassifierTests
             toppings: Array.Empty<string>(),
             isDecaf: true
         );
-
+        //act
         var result = BeverageClassifier.Classify(bev);
-
+        //assert
         Assert.IsTrue(result.KidSafe);
 
     }
+    [TestMethod]
+    public void Classify_ShotsGreaterThanZeroAndNotDecaf_ReturnsNotKidSafe()
+    {
+        var bev = new Beverage(
+            baseDrink: "Cappuccino",
+            size: "Venti",
+            temp: "Hot",
+            milk: "2%",
+            plantMilk: null,
+            shots: 2,
+            syrups: Array.Empty<string>(),
+            toppings: Array.Empty<string>(),
+            isDecaf: false
+        );
+        //act
+        var result = BeverageClassifier.Classify(bev);
+        //assert
+        Assert.IsFalse(result.KidSafe, "Beverage with shots greater than 0 and not decaf should not be classified as kid-safe.");
+        Assert.IsTrue(result.Caffeinated, "Beverage with shots greater than 0 and not decaf should be classified as caffeinated.");
+
+    }
+    
 }
