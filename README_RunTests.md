@@ -23,6 +23,9 @@ dotnet test CoffeeOrder.Tests --filter "TestCategory!=Pending"
 
 #Run All Tests
 dotnet test
+
+#AppDriver(CLI) - run a demo receipt:
+dotnet run --project CoffeeOrder.App --HAPPYHOUR BOGO
 ```
 
 ## Project Layout
