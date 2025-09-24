@@ -49,5 +49,46 @@ namespace CoffeeOrder.Tests
             Assert.AreEqual(expectedDiscount, discounts[0].Amount);
             Assert.AreEqual(expectedTotal, totalAfter);
         }
+        [TestMethod]
+        public void Apply_BOGO_TwoItems_DiscountCheapestOne()
+        {
+            var bev1 = new Beverage(
+                    baseDrink: "Latte", // Base price: 3.00
+                    size: "Tall",   // Size adjustment: 0.00
+                    temp: "Hot",
+                    milk: null,
+                    plantMilk: null,
+                    shots: 0,
+                    syrups: Array.Empty<string>(),
+                    toppings: Array.Empty<string>(),
+                    isDecaf: true
+                );
+
+            var bev2 = new Beverage(
+                baseDrink: "Espresso",  // Base price: 2.50
+                size: "Venti", // Size adjustment: 1.00
+                temp: "Hot",
+                milk: null,
+                plantMilk: null,
+                shots: 0,
+                syrups: Array.Empty<string>(),
+                toppings: Array.Empty<string>(),
+                isDecaf: true
+            );
+
+            var items = new[] { bev1, bev2 };
+            var subtotal = PriceCalculator.CalculateOrderPrice(items);
+
+            var (totalAfter, discounts) = PromotionHelper.Apply(items, new[] { "BOGO" });
+
+            var expectedDiscount = Math.Round(Math.Min(PriceCalculator.CalculatePrice(bev1), PriceCalculator.CalculatePrice(bev2)), 2);
+            var expectedTotal = Math.Round(subtotal - expectedDiscount, 2);
+
+            Assert.AreEqual(1, discounts.Count);
+            Assert.AreEqual("BOGO", discounts[0].Code);
+            Assert.AreEqual(3.00m, discounts[0].Amount);
+            Assert.AreEqual(subtotal - 3.00m, totalAfter);
+
+        }
     }
 }
