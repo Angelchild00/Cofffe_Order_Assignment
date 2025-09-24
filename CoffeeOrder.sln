@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoffeeOrder", "CoffeeOrder\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoffeeOrder.Tests", "CoffeeOrder.Tests\CoffeeOrder.Tests.csproj", "{2FAE23C4-9DD4-4197-BBF4-3E903D64AEC3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoffeeOrder.App", "CoffeeOrder.App\CoffeeOrder.App.csproj", "{212F2B36-A11E-43A3-8A34-73ACF527D8B2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +43,18 @@ Global
 		{2FAE23C4-9DD4-4197-BBF4-3E903D64AEC3}.Release|x64.Build.0 = Release|Any CPU
 		{2FAE23C4-9DD4-4197-BBF4-3E903D64AEC3}.Release|x86.ActiveCfg = Release|Any CPU
 		{2FAE23C4-9DD4-4197-BBF4-3E903D64AEC3}.Release|x86.Build.0 = Release|Any CPU
+		{212F2B36-A11E-43A3-8A34-73ACF527D8B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{212F2B36-A11E-43A3-8A34-73ACF527D8B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{212F2B36-A11E-43A3-8A34-73ACF527D8B2}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{212F2B36-A11E-43A3-8A34-73ACF527D8B2}.Debug|x64.Build.0 = Debug|Any CPU
+		{212F2B36-A11E-43A3-8A34-73ACF527D8B2}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{212F2B36-A11E-43A3-8A34-73ACF527D8B2}.Debug|x86.Build.0 = Debug|Any CPU
+		{212F2B36-A11E-43A3-8A34-73ACF527D8B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{212F2B36-A11E-43A3-8A34-73ACF527D8B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{212F2B36-A11E-43A3-8A34-73ACF527D8B2}.Release|x64.ActiveCfg = Release|Any CPU
+		{212F2B36-A11E-43A3-8A34-73ACF527D8B2}.Release|x64.Build.0 = Release|Any CPU
+		{212F2B36-A11E-43A3-8A34-73ACF527D8B2}.Release|x86.ActiveCfg = Release|Any CPU
+		{212F2B36-A11E-43A3-8A34-73ACF527D8B2}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
