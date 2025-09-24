@@ -32,7 +32,9 @@ namespace CoffeeOrder.Tests
                 author: "Leanne"
             );
 
-            StringAssert.Contains(text, "Receipt - Leanne - 01/02/2025 15:30");
+            var expected = "Receipt - Leanne - 01/02/2025 15:30";
+            var firstLine = text.Split(new[] { "\r\n", "\n" }, StringSplitOptions.None)[0];
+            Assert.AreEqual(expected, firstLine);
             StringAssert.Contains(text, "Latte (Tall Hot)".PadRight(30) + "3.00".PadLeft(10));
             StringAssert.Contains(text, "Subtotal:".PadRight(30) + "3.00".PadLeft(10));
             StringAssert.Contains(text, "Total:".PadRight(30) + "3.00".PadLeft(10));

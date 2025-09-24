@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using CoffeeOrder.Models;
 using CoffeeOrder.Pricing;
 using CoffeeOrder.Promotions;
+using System.Globalization;
 
 namespace CoffeeOrder.Receipt;
 
@@ -21,7 +22,7 @@ public static class ReceiptFormatter
         var sb = new StringBuilder();
 
         // HEADER — MM/dd/yyyy HH:mm 
-        sb.AppendLine($"Receipt - {author} - {now:MM/dd/yyyy HH:mm}");
+        sb.AppendLine($"Receipt - {author} - {now.ToString("MM'/'dd'/'yyyy HH:mm", CultureInfo.InvariantCulture)}");
         sb.AppendLine(new string('-', 40));
 
         // ITEMS
