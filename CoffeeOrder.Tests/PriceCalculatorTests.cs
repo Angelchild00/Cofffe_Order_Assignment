@@ -11,10 +11,10 @@ public class PriceCalculatorTests
     public void CalculatePrice_Tall_NoAddons_ReturnsBasePrice()
     {
         var beverage = new Beverage(
-            baseDrink: "Latte",
-            size: "Tall",
-            temp: "Hot",
-            milk: "Whole",
+            baseDrink: "Latte",     // Base price: 3.00
+            size: "Tall",       // Size adjustment: 0.00
+            temp: "Hot",    
+            milk: "Whole",  
             plantMilk: null,
             shots: 0,
             syrups: Array.Empty<string>(),
@@ -30,12 +30,12 @@ public class PriceCalculatorTests
     public void CalculatePrice_AddShots()
     {
         var beverage = new Beverage(
-            baseDrink: "Espresso",
-            size: "Tall",
+            baseDrink: "Espresso",  // Base price: 2.50
+            size: "Tall",   
             temp: "Hot",
             milk: null,
             plantMilk: null,
-            shots: 2,
+            shots: 2,   // 2 shots at 0.50 each
             syrups: Array.Empty<string>(),
             toppings: Array.Empty<string>(),
             isDecaf: false
@@ -49,13 +49,13 @@ public class PriceCalculatorTests
     public void CalculatePrice_AddSyrups()
     {
         var beverage = new Beverage(
-            baseDrink: "Cappuccino",
-            size: "Grande",
+            baseDrink: "Cappuccino",    // Base price: 3.50
+            size: "Grande", // Size adjustment: 0.50
             temp: "Hot",
             milk: "2%",
             plantMilk: null,
-            shots: 1,
-            syrups: new[] { "Vanilla", "Caramel" },
+            shots: 1,   // 1 shot at 0.50
+            syrups: new[] { "Vanilla", "Caramel" }, // 2 syrups at 0.25 each
             toppings: Array.Empty<string>(),
             isDecaf: false
         );
@@ -68,14 +68,14 @@ public class PriceCalculatorTests
     public void CalculatePrice_AddToppings()
     {
         var beverage = new Beverage(
-            baseDrink: "Mocha",
-            size: "Venti",
+            baseDrink: "Mocha", // Base price: 3.75
+            size: "Venti",  // Size adjustment: 1.00
             temp: "Hot",
             milk: "Whole",
             plantMilk: null,
-            shots: 1,
+            shots: 1,   // 1 shot at 0.50
             syrups: Array.Empty<string>(),
-            toppings: new[] { "Whipped Cream", "Chocolate Shavings" },
+            toppings: new[] { "Whipped Cream", "Chocolate Shavings" },  // 2 toppings at 0.30 each
             isDecaf: false
         );
         //act
@@ -87,14 +87,14 @@ public class PriceCalculatorTests
     public void CalculatePrice_PlantMilkSurcharge()
     {
         var beverage = new Beverage(
-            baseDrink: "Latte",
-            size: "Grande",
+            baseDrink: "Latte", // Base price: 3.00
+            size: "Grande", // Size adjustment: 0.50
             temp: "Hot",
             milk: null,
-            plantMilk: "Oat",
-            shots: 1,
-            syrups: new[] { "Vanilla" },
-            toppings: new[] { "Cinnamon" },
+            plantMilk: "Oat",   // Plant milk surcharge: 0.50
+            shots: 1,   // 1 shot at 0.50
+            syrups: new[] { "Vanilla" },    // 1 syrup at 0.25
+            toppings: new[] { "Cinnamon" }, //  1 topping at 0.30
             isDecaf: false
         );
         //act
@@ -106,14 +106,14 @@ public class PriceCalculatorTests
     public void CalculatePrice_SumItems()
     {
         var beverage = new Beverage(
-            baseDrink: "Americano",
-            size: "Venti",
+            baseDrink: "Americano", // Base price: 2.00
+            size: "Venti",  // Size adjustment: 1.00
             temp: "Iced",
             milk: null,
-            plantMilk: "Almond",
-            shots: 3,
-            syrups: new[] { "Hazelnut", "Caramel", "Vanilla" },
-            toppings: new[] { "Whipped Cream" },
+            plantMilk: "Almond",    // Plant milk surcharge: 0.50
+            shots: 3,   // 3 shots at 0.50 each
+            syrups: new[] { "Hazelnut", "Caramel", "Vanilla" }, // 3 syrups at 0.25 each
+            toppings: new[] { "Whipped Cream" },    // 1 topping at 0.30
             isDecaf: false
         );
         //act
