@@ -90,5 +90,28 @@ namespace CoffeeOrder.Tests
             Assert.AreEqual(subtotal - 3.00m, totalAfter);
 
         }
+        [TestMethod]
+        public void Apply_BOGO_OneItem_NoDiscount()
+        {
+            var bev1 = new Beverage(
+                    baseDrink: "Latte", // Base price: 3.00
+                    size: "Tall",   // Size adjustment: 0.00
+                    temp: "Hot",
+                    milk: null,
+                    plantMilk: null,
+                    shots: 0,
+                    syrups: Array.Empty<string>(),
+                    toppings: Array.Empty<string>(),
+                    isDecaf: true
+                );
+
+            var items = new[] { bev1 };
+            var subtotal = PriceCalculator.CalculateOrderPrice(items);
+
+            var (totalAfter, discounts) = PromotionHelper.Apply(items, new[] { "BOGO" });
+
+            Assert.AreEqual(0, discounts.Count);
+            Assert.AreEqual(subtotal, totalAfter);
+        }
     }
 }
